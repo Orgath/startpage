@@ -1,96 +1,286 @@
-<!DOCTYPE NETSCAPE-Bookmark-file-1>
-<!-- This is an automatically generated file.
-     It will be read and overwritten.
-     DO NOT EDIT! -->
+<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="utf-8">
-  <title>Segnalibri</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Start</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
+    :root {
+      --bg: #0b0c10;
+      --bg-card: #151822;
+      --accent: #4ea3ff;
+      --accent-soft: rgba(78,163,255,0.15);
+      --text: #e6e6e6;
+      --text-muted: #9aa0b3;
+    }
+    * { box-sizing:border-box; }
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:#111;
-      color:#eee;
       margin:0;
-      padding:1.5rem;
+      padding:2rem 1.5rem 3rem;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1c2537 0, #05060a 55%, #000 100%);
+      color:var(--text);
     }
-    a { color:#4ea3ff; text-decoration:none; }
-    a:hover { text-decoration:underline; }
-    h1 { margin-bottom:1rem; }
-    h3 {
-      margin:0.75rem 0 0.25rem;
-      font-size:1rem;
+    h1 {
+      margin:0 0 0.25rem;
+      font-size:1.8rem;
     }
-    dl { margin-left:1rem; }
+    .subtitle {
+      margin:0 0 1.75rem;
+      color:var(--text-muted);
+      font-size:0.95rem;
+    }
+    .grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+      gap:1.25rem;
+      align-items:start;
+    }
+    .card {
+      background:var(--bg-card);
+      border-radius:0.9rem;
+      padding:1rem 1.1rem 0.8rem;
+      box-shadow:0 18px 40px rgba(0,0,0,0.45);
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .card h2 {
+      margin:0 0 0.4rem;
+      font-size:1.05rem;
+      text-transform:uppercase;
+      letter-spacing:0.08em;
+      color:var(--text-muted);
+    }
+    .card small {
+      display:block;
+      margin-bottom:0.6rem;
+      font-size:0.75rem;
+      color:var(--text-muted);
+    }
+    ul.links {
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+    ul.links li + li { margin-top:0.25rem; }
+    a.link {
+      display:flex;
+      align-items:center;
+      gap:0.45rem;
+      padding:0.35rem 0.4rem;
+      border-radius:0.5rem;
+      color:var(--text);
+      text-decoration:none;
+      transition:background 0.18s ease, transform 0.12s ease, box-shadow 0.18s ease;
+    }
+    a.link span.icon {
+      width:1.4rem;
+      height:1.4rem;
+      border-radius:0.4rem;
+      background:var(--accent-soft);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:0.8rem;
+      color:var(--accent);
+      flex-shrink:0;
+    }
+    a.link span.label {
+      flex:1;
+      font-size:0.9rem;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    a.link span.host {
+      font-size:0.7rem;
+      color:var(--text-muted);
+    }
+    a.link:hover {
+      background:rgba(255,255,255,0.03);
+      transform:translateY(-1px);
+      box-shadow:0 8px 22px rgba(0,0,0,0.45);
+    }
+    @media (min-width:900px) {
+      body { padding:2.5rem 3rem 3.5rem; }
+      h1 { font-size:2rem; }
+    }
   </style>
 </head>
 <body>
-  <h1>Segnalibri</h1>
 
-  <DL><p>
-    <DT><H3 ADD_DATE="1733606692" LAST_MODIFIED="1733606692" PERSONAL_TOOLBAR_FOLDER="true">Barra dei preferiti</H3>
-    <DL><p>
-      <DT><A HREF="https://app.raindrop.io/" ADD_DATE="1733606692">Raindrop.io</A>
-      <DT><A HREF="https://www.youtube.com/" ADD_DATE="1733606692">YouTube</A>
-      <DT><A HREF="https://mail.google.com/" ADD_DATE="1733606692">Gmail</A>
-      <DT><A HREF="https://calendar.google.com/" ADD_DATE="1733606692">Google Calendar</A>
-      <DT><A HREF="https://drive.google.com/" ADD_DATE="1733606692">Google Drive</A>
-    </DL><p>
+  <h1>Start</h1>
+  <p class="subtitle">Link principali, sincronizzati tra tutti i browser.</p>
 
-    <DT><H3 ADD_DATE="1733606692" LAST_MODIFIED="1733606692">Lavoro</H3>
-    <DL><p>
-      <DT><A HREF="https://mail.example.com" ADD_DATE="1733606692">Mail lavoro</A>
-      <DT><A HREF="https://jira.example.com" ADD_DATE="1733606692">Jira</A>
-      <DT><A HREF="https://confluence.example.com" ADD_DATE="1733606692">Confluence</A>
-      <DT><A HREF="https://portal.example.com" ADD_DATE="1733606692">Portal aziendale</A>
-    </DL><p>
+  <div class="grid">
 
-    <DT><H3 ADD_DATE="1733606692" LAST_MODIFIED="1733606692">Personale</H3>
-    <DL><p>
-      <DT><A HREF="https://www.netflix.com/" ADD_DATE="1733606692">Netflix</A>
-      <DT><A HREF="https://www.primevideo.com/" ADD_DATE="1733606692">Prime Video</A>
-      <DT><A HREF="https://open.spotify.com/" ADD_DATE="1733606692">Spotify</A>
-      <DT><A HREF="https://letterboxd.com/" ADD_DATE="1733606692">Letterboxd</A>
-    </DL><p>
+    <!-- Lavoro -->
+    <section class="card">
+      <h2>Lavoro</h2>
+      <small>Strumenti quotidiani</small>
+      <ul class="links">
+        <li>
+          <a class="link" href="https://mail.example.com">
+            <span class="icon">✉️</span>
+            <span class="label">Mail lavoro</span>
+            <span class="host">mail.example.com</span>
+          </a>
+        </li>
+        <li>
+          <a class="link" href="https://jira.example.com">
+            <span class="icon">📋</span>
+            <span class="label">Jira</span>
+            <span class="host">jira.example.com</span>
+          </a>
+        </li>
+        <li>
+          <a class="link" href="https://confluence.example.com">
+            <span class="icon">📚</span>
+            <span class="label">Confluence</span>
+            <span class="host">confluence.example.com</span>
+          </a>
+        </li>
+      </ul>
+    </section>
 
-    <DT><H3 ADD_DATE="1733606692" LAST_MODIFIED="1733606692">Homelab</H3>
-    <DL><p>
-      <DT><A HREF="http://192.168.1.10/admin" ADD_DATE="1733606692">Pi-hole</A>
-      <DT><A HREF="https://start.home.lan" ADD_DATE="1733606692">Start page homelab</A>
-      <DT><A HREF="https://proxmox.home.lan:8006" ADD_DATE="1733606692">Proxmox</A>
-      <DT><A HREF="https://truenas.home.lan" ADD_DATE="1733606692">TrueNAS</A>
-      <DT><A HREF="https://router.home.lan" ADD_DATE="1733606692">Router</A>
-    </DL><p>
+    <!-- Personale -->
+    <section class="card">
+      <h2>Personale</h2>
+      <small>Uso quotidiano</small>
+      <ul class="links">
+        <li>
+          <a class="link" href="https://app.raindrop.io/">
+            <span class="icon">🔖</span>
+            <span class="label">Raindrop</span>
+            <span class="host">app.raindrop.io</span>
+          </a>
+        </li>
+        <li>
+          <a class="link" href="https://www.youtube.com/">
+            <span class="icon">▶️</span>
+            <span class="label">YouTube</span>
+            <span class="host">youtube.com</span>
+          </a>
+        </li>
+        <li>
+          <a class="link" href="https://www.netflix.com/">
+            <span class="icon">🎬</span>
+            <span class="label">Netflix</span>
+            <span class="host">netflix.com</span>
+          </a>
+        </li>
+      </ul>
+    </section>
 
-    <DT><H3 ADD_DATE="1733606692" LAST_MODIFIED="1733606692">Studio / Certificazioni</H3>
-    <DL><p>
-      <DT><A HREF="https://www.pmi.org/" ADD_DATE="1733606692">PMI</A>
-      <DT><A HREF="https://www.axelos.com/" ADD_DATE="1733606692">AXELOS</A>
-      <DT><A HREF="https://www.coursera.org/" ADD_DATE="1733606692">Coursera</A>
-      <DT><A HREF="https://www.udemy.com/" ADD_DATE="1733606692">Udemy</A>
-      <DT><A HREF="https://learn.microsoft.com/" ADD_DATE="1733606692">Microsoft Learn</A>
-    </DL><p>
+    <!-- Homelab -->
+    <section class="card">
+      <h2>Homelab</h2>
+      <small>Accesso da LAN / VPN</small>
+      <ul class="links">
+        <li>
+          <a class="link" href="http://192.168.1.10/admin">
+            <span class="icon">🧩</span>
+            <span class="label">Pi‑hole</span>
+            <span class="host">192.168.1.10</span>
+          </a>
+        </li>
+        <li>
+          <a class="link" href="https://proxmox.home.lan:8006">
+            <span class="icon">🖥️</span>
+            <span class="label">Proxmox</span>
+            <span class="host">proxmox.home.lan</span>
+          </a>
+        </li>
+        <li>
+          <a class="link" href="https://truenas.home.lan">
+            <span class="icon">💾</span>
+            <span class="label">TrueNAS</span>
+            <span class="host">truenas.home.lan</span>
+          </a>
+        </li>
+      </ul>
+    </section>
 
-    <DT><H3 ADD_DATE="1733606692" LAST_MODIFIED="1733606692">Video / Color grading</H3>
-    <DL><p>
-      <DT><A HREF="https://www.blackmagicdesign.com/products/davinciresolve/" ADD_DATE="1733606692">DaVinci Resolve</A>
-      <DT><A HREF="https://www.provideocoalition.com/" ADD_DATE="1733606692">ProVideo Coalition</A>
-      <DT><A HREF="https://nofilmschool.com/" ADD_DATE="1733606692">No Film School</A>
-      <DT><A HREF="https://www.rocketjumpfilmschool.com/" ADD_DATE="1733606692">RocketJump Film School</A>
-      <DT><A HREF="https://www.colorgradingcentral.com/" ADD_DATE="1733606692">Color Grading Central</A>
-    </DL><p>
+    <!-- Studio / Certificazioni -->
+    <section class="card">
+      <h2>Studio</h2>
+      <small>Certificazioni e formazione</small>
+      <ul class="links">
+        <li>
+          <a class="link" href="https://www.pmi.org/">
+            <span class="icon">📘</span>
+            <span class="label">PMI</span>
+            <span class="host">pmi.org</span>
+          </a>
+        </li>
+        <li>
+          <a class="link" href="https://www.udemy.com/">
+            <span class="icon">🎓</span>
+            <span class="label">Udemy</span>
+            <span class="host">udemy.com</span>
+          </a>
+        </li>
+        <li>
+          <a class="link" href="https://learn.microsoft.com/">
+            <span class="icon">📚</span>
+            <span class="label">Microsoft Learn</span>
+            <span class="host">learn.microsoft.com</span>
+          </a>
+        </li>
+      </ul>
+    </section>
 
-    <DT><H3 ADD_DATE="1733606692" LAST_MODIFIED="1733606692">Tech / Dev / Infra</H3>
-    <DL><p>
-      <DT><A HREF="https://stackoverflow.com/" ADD_DATE="1733606692">Stack Overflow</A>
-      <DT><A HREF="https://github.com/" ADD_DATE="1733606692">GitHub</A>
-      <DT><A HREF="https://hub.docker.com/" ADD_DATE="1733606692">Docker Hub</A>
-      <DT><A HREF="https://www.proxmox.com/" ADD_DATE="1733606692">Proxmox</A>
-      <DT><A HREF="https://docs.docker.com/" ADD_DATE="1733606692">Docker Docs</A>
-    </DL><p>
+    <!-- Video / Color grading -->
+    <section class="card">
+      <h2>Video</h2>
+      <small>Produzione e color grading</small>
+      <ul class="links">
+        <li>
+          <a class="link" href="https://www.blackmagicdesign.com/products/davinciresolve/">
+            <span class="icon">🎛️</span>
+            <span class="label">DaVinci Resolve</span>
+            <span class="host">blackmagicdesign.com</span>
+          </a>
+        </li>
+        <li>
+          <a class="link" href="https://nofilmschool.com/">
+            <span class="icon">🎥</span>
+            <span class="label">No Film School</span>
+            <span class="host">nofilmschool.com</span>
+          </a>
+        </li>
+      </ul>
+    </section>
 
-  </DL><p>
+    <!-- Tech / Dev -->
+    <section class="card">
+      <h2>Tech</h2>
+      <small>Dev & infrastruttura</small>
+      <ul class="links">
+        <li>
+          <a class="link" href="https://github.com/">
+            <span class="icon">🐙</span>
+            <span class="label">GitHub</span>
+            <span class="host">github.com</span>
+          </a>
+        </li>
+        <li>
+          <a class="link" href="https://hub.docker.com/">
+            <span class="icon">🐳</span>
+            <span class="label">Docker Hub</span>
+            <span class="host">hub.docker.com</span>
+          </a>
+        </li>
+        <li>
+          <a class="link" href="https://docs.docker.com/">
+            <span class="icon">📄</span>
+            <span class="label">Docker Docs</span>
+            <span class="host">docs.docker.com</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+  </div>
 
 </body>
 </html>
