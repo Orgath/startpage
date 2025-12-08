@@ -1,104 +1,510 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>Startpage - I miei Preferiti</title>
+  <meta charset="UTF-8" />
+  <title>Start · Segnalibri</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+    :root {
+      --bg: #020617;
+      --bg-card: #020617;
+      --bg-elevated: rgba(15,23,42,0.96);
+      --accent: #38bdf8;
+      --accent2: #a855f7;
+      --accent-soft: rgba(56,189,248,0.18);
+      --text: #e5e7eb;
+      --text-soft: #9ca3af;
+      --border-subtle: rgba(148,163,184,0.4);
+      --radius-card: 18px;
+      --radius-pill: 999px;
+      --shadow: 0 20px 60px rgba(15,23,42,0.9);
+      --transition: 160ms ease-out;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont,
+                   "SF Pro Text","Segoe UI",Roboto,sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      font-family: 'Segoe UI', Roboto, sans-serif;
-      background: linear-gradient(135deg, #1e1e2f, #2c2c3f);
-      color: #fff;
-      margin: 0;
-      padding: 2rem;
+      min-height: 100vh;
+      font-family: var(--font-sans);
+      background:
+        radial-gradient(circle at top left, rgba(56,189,248,0.22), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(129,140,248,0.25), transparent 55%),
+        linear-gradient(135deg, #020617, #020617 45%, #020617 100%);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
     }
-    h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+
+    main {
+      width: 100%;
+      max-width: 960px;
+      background: linear-gradient(145deg, rgba(15,23,42,0.96), rgba(15,23,42,0.9));
+      border-radius: 26px;
+      border: 1px solid rgba(148,163,184,0.4);
+      box-shadow: var(--shadow);
+      padding: 18px 18px 14px;
+      position: relative;
+      overflow: hidden;
     }
-    .category {
-      margin-top: 2rem;
+
+    main::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 0 0, rgba(56,189,248,0.22), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(236,72,153,0.22), transparent 55%);
+      mix-blend-mode: soft-light;
+      opacity: 0.9;
+      pointer-events: none;
     }
-    .category h2 {
-      border-left: 4px solid #4fc3f7;
-      padding-left: 0.5rem;
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
+
+    .inner {
+      position: relative;
+      z-index: 1;
     }
+
+    /* Header */
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .title-block {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      background:
+        radial-gradient(circle at 25% 0, #38bdf8 0, transparent 55%),
+        radial-gradient(circle at 80% 100%, #6366f1 0, transparent 60%);
+      box-shadow:
+        0 0 0 1px rgba(148,163,184,0.8),
+        0 12px 30px rgba(15,23,42,0.9);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .avatar::after {
+      content: "";
+      position: absolute;
+      inset: 32% 16% 10%;
+      background: radial-gradient(circle at 50% 0, rgba(15,23,42,0.4), transparent 70%);
+    }
+
+    .title-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .title-main {
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .title-sub {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .clock {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      padding: 6px 11px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148,163,184,0.6);
+      background: radial-gradient(circle at top left, rgba(56,189,248,0.36), rgba(15,23,42,0.9));
+      color: #e0f2fe;
+    }
+
+    .clock-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 6px rgba(34,197,94,0.18);
+    }
+
+    .clock-main { font-weight: 500; letter-spacing: 0.04em; }
+    .clock-sub  { font-size: 0.7rem; opacity: 0.95; }
+
+    /* Search */
+    .search-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .search {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(15,23,42,0.96);
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148,163,184,0.6);
+      padding: 8px 12px;
+      font-size: 0.84rem;
+      color: var(--text-soft);
+    }
+
+    .search input {
+      border: none;
+      outline: none;
+      background: transparent;
+      color: var(--text);
+      font-size: 0.85rem;
+      width: 100%;
+    }
+
+    .search input::placeholder {
+      color: var(--text-soft);
+      opacity: 0.9;
+    }
+
+    .search-icon {
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      border: 2px solid rgba(148,163,184,0.9);
+      position: relative;
+    }
+
+    .search-icon::after {
+      content: "";
+      position: absolute;
+      width: 6px;
+      height: 2px;
+      border-radius: 999px;
+      background: rgba(148,163,184,0.9);
+      right: -4px;
+      bottom: -1px;
+      transform: rotate(35deg);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .chip {
+      padding: 6px 11px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148,163,184,0.6);
+      background: rgba(15,23,42,0.95);
+      font-size: 0.76rem;
+      color: var(--text-soft);
+      text-decoration: none;
+      transition: background var(--transition), border-color var(--transition), color var(--transition), transform var(--transition), box-shadow var(--transition);
+    }
+
+    .chip:hover {
+      background: rgba(15,23,42,1);
+      border-color: rgba(248,250,252,0.9);
+      color: #e5e7eb;
+      transform: translateY(-1px);
+      box-shadow: 0 12px 32px rgba(15,23,42,0.9);
+    }
+
+    /* Layout columns */
+    .columns {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+      gap: 14px;
+    }
+
+    @media (max-width: 800px) {
+      .columns { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, var(--accent-soft), rgba(15,23,42,0.98));
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border-subtle);
+      padding: 14px 13px 10px;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      gap: 6px;
+    }
+
+    .card-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+
+    .card-pill {
+      font-size: 0.72rem;
+      padding: 4px 8px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148,163,184,0.6);
+      color: var(--text-soft);
+      background: rgba(15,23,42,0.96);
+    }
+
     .links {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 1rem;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 5px;
+      font-size: 0.86rem;
     }
-    .link-card {
-      background: #2e2e3f;
-      padding: 1rem;
-      border-radius: 10px;
-      text-align: center;
-      transition: transform 0.2s, background 0.2s;
-    }
-    .link-card:hover {
-      transform: translateY(-5px);
-      background: #3a3a4f;
-    }
-    a {
-      color: #4fc3f7;
+
+    .link-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 7px 9px;
+      border-radius: var(--radius-pill);
+      background: rgba(15,23,42,0.96);
+      border: 1px solid transparent;
+      color: var(--text);
       text-decoration: none;
-      font-weight: bold;
+      transition: background var(--transition), border-color var(--transition), transform var(--transition), box-shadow var(--transition), color var(--transition);
     }
-    a:hover {
-      text-decoration: underline;
+
+    .link-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
     }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(56,189,248,0.9);
+      box-shadow: 0 0 0 6px rgba(56,189,248,0.18);
+      flex-shrink: 0;
+    }
+
+    .label {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    .meta {
+      font-size: 0.72rem;
+      color: var(--text-soft);
+      flex-shrink: 0;
+    }
+
+    .link-row:hover {
+      background: radial-gradient(circle at top left, rgba(56,189,248,0.24), rgba(15,23,42,1) 65%);
+      border-color: var(--accent);
+      color: #f9fafb;
+      box-shadow: 0 16px 40px rgba(8,47,73,0.85);
+      transform: translateY(-1px);
+    }
+
+    footer {
+      margin-top: 10px;
+      font-size: 0.72rem;
+      color: var(--text-soft);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      opacity: 0.95;
+    }
+
+    footer span strong { font-weight: 600; }
   </style>
 </head>
 <body>
-  <h1>⭐ I miei Preferiti</h1>
+  <main>
+    <div class="inner">
+      <header>
+        <div class="title-block">
+          <div class="avatar"></div>
+          <div class="title-text">
+            <div class="title-main">Start Page</div>
+            <div class="title-sub">Segnalibri principali</div>
+          </div>
+        </div>
+        <div class="clock">
+          <div class="clock-dot"></div>
+          <div>
+            <div id="clock-main" class="clock-main">--:--</div>
+            <div id="clock-sub" class="clock-sub">Caricamento…</div>
+          </div>
+        </div>
+      </header>
 
-  <!-- Categoria: Barra Preferiti -->
-  <div class="category">
-    <h2>Barra Preferiti</h2>
-    <div class="links">
-      <div class="link-card"><a href="https://www.youtube.com/">YouTube</a></div>
-      <div class="link-card"><a href="http://www.hdblog.it/">HDblog</a></div>
-      <div class="link-card"><a href="https://dday.it/">DDay.it</a></div>
-      <div class="link-card"><a href="https://www.ilpost.it/">Il Post</a></div>
-      <div class="link-card"><a href="https://www.adnkronos.com/">Adnkronos</a></div>
-      <div class="link-card"><a href="https://www.ansa.it/">ANSA</a></div>
-      <div class="link-card"><a href="http://www.rainews.it/">Rai News</a></div>
-      <div class="link-card"><a href="http://www.facebook.com/">Facebook</a></div>
-      <div class="link-card"><a href="http://www.andreagaleazzi.com/?m=1">Andrea Galeazzi</a></div>
-      <div class="link-card"><a href="https://www.amazon.it/">Amazon</a></div>
-      <div class="link-card"><a href="https://hyle.appspot.com/palinsesto/serata">Palinsesto TV</a></div>
-    </div>
-  </div>
+      <div class="search-row">
+        <div class="search">
+          <div class="search-icon"></div>
+          <input
+            id="search-box"
+            type="text"
+            autocomplete="off"
+            placeholder="Cerca sul Web · Invio: Google · Alt+1: YouTube · Alt+2: News"
+          />
+        </div>
+        <div class="chips">
+          <a class="chip" href="https://mail.google.com" target="_blank" rel="noopener">Gmail</a>
+          <a class="chip" href="https://www.youtube.com" target="_blank" rel="noopener">YouTube</a>
+          <a class="chip" href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
 
-  <!-- Categoria: Consob -->
-  <div class="category">
-    <h2>Consob</h2>
-    <div class="links">
-      <div class="link-card"><a href="https://webticketing.consob.it/Consob/Login">Ticket</a></div>
-      <div class="link-card"><a href="https://menuarc.consob/login.php">Menu Funzioni</a></div>
-      <div class="link-card"><a href="http://172.16.130.160/ocsreports/index.php?first">OCS Inventory</a></div>
-      <div class="link-card"><a href="http://teams.microsoft.com/">Teams</a></div>
-      <div class="link-card"><a href="https://portal.checkpoint.com/signin">Check Point</a></div>
-      <div class="link-card"><a href="https://172.20.18.251/ui/#/host">VM</a></div>
-      <div class="link-card"><a href="https://172.20.120.148/#hId-pgWebScan">Scanner</a></div>
-      <div class="link-card"><a href="https://webticketing.consob.it/Consob/ServiceDesk/Anagrafica">Anagrafica</a></div>
-      <div class="link-card"><a href="https://micollab.consob.it/ucs/micollab/">MiCollab</a></div>
-      <div class="link-card"><a href="http://intranet.consob/int/modulistica/elenco_moduli.html">Modulistica</a></div>
-    </div>
-  </div>
+      <div class="columns">
+        <!-- COLONNA SINISTRA: SEGNALIBRI -->
+        <section class="card">
+          <div class="card-header">
+            <div class="card-title">Segnalibri</div>
+            <div class="card-pill">Daily web</div>
+          </div>
+          <div class="links">
+            <a class="link-row" href="https://www.youtube.com" target="_blank" rel="noopener">
+              <div class="link-left">
+                <div class="dot"></div>
+                <span class="label">YouTube</span>
+              </div>
+              <span class="meta">video</span>
+            </a>
+            <a class="link-row" href="https://www.facebook.com" target="_blank" rel="noopener">
+              <div class="link-left">
+                <div class="dot"></div>
+                <span class="label">Facebook</span>
+              </div>
+              <span class="meta">social</span>
+            </a>
+            <a class="link-row" href="https://www.hdblog.it" target="_blank" rel="noopener">
+              <div class="link-left">
+                <div class="dot"></div>
+                <span class="label">HDblog</span>
+              </div>
+              <span class="meta">tech</span>
+            </a>
+            <a class="link-row" href="https://www.dday.it" target="_blank" rel="noopener">
+              <div class="link-left">
+                <div class="dot"></div>
+                <span class="label">DDay.it</span>
+              </div>
+              <span class="meta">tech</span>
+            </a>
+            <a class="link-row" href="https://www.ilpost.it" target="_blank" rel="noopener">
+              <div class="link-left">
+                <div class="dot"></div>
+                <span class="label">Il Post</span>
+              </div>
+              <span class="meta">news</span>
+            </a>
+            <a class="link-row" href="https://www.ansa.it" target="_blank" rel="noopener">
+              <div class="link-left">
+                <div class="dot"></div>
+                <span class="label">ANSA</span>
+              </div>
+              <span class="meta">news</span>
+            </a>
+            <a class="link-row" href="https://www.adnkronos.com" target="_blank" rel="noopener">
+              <div class="link-left">
+                <div class="dot"></div>
+                <span class="label">Adnkronos</span>
+              </div>
+              <span class="meta">news</span>
+            </a>
+            <a class="link-row" href="https://guidatv.sky.it" target="_blank" rel="noopener">
+              <div class="link-left">
+                <div class="dot"></div>
+                <span class="label">Guida TV</span>
+              </div>
+              <span class="meta">tv</span>
+            </a>
+            <a class="link-row" href="https://www.ing.it" target="_blank" rel="noopener">
+              <div class="link-left">
+                <div class="dot"></div>
+                <span class="label">ING</span>
+              </div>
+              <span class="meta">bank</span>
+            </a>
+            <a class="link-row" href="https://www.andreagaleazzi.com" target="_blank" rel="noopener">
+              <div class="link-left">
+                <div class="dot"></div>
+                <span class="label">Andrea Galeazzi</span>
+              </div>
+              <span class="meta">tech</span>
+            </a>
+            <a class="link-row" href="https://www.raiplay.it/notizie" target="_blank" rel="noopener">
+              <div class="link-left">
+                <div class="dot"></div>
+                <span class="label">Rai News</span>
+              </div>
+              <span class="meta">news</span>
+            </a>
+            <a class="link-row" href="https://www.amazon.it" target="_blank" rel="noopener">
+              <div class="link-left">
+                <div class="dot"></div>
+                <span class="label">Amazon</span>
+              </div>
+              <span class="meta">shopping</span>
+            </a>
+            <!-- Puoi aggiungere altri segnalibri generici qui -->
+          </div>
+        </section>
 
-  <!-- Categoria: SMI -->
-  <div class="category">
-    <h2>SMI</h2>
-    <div class="links">
-      <div class="link-card"><a href="https://sm.pandasecurity.com/">Panda</a></div>
-      <div class="link-card"><a href="https://smart.smi-cons.it/dashboard/account/login">Smart Dashboard</a></div>
-      <div class="link-card"><a href="https://wyl.smi-cons.it/Dashboard/Gestione/home">Wyl</a></div>
-      <div class="link-card"><a href="https://younified.smi-cons.it/Dashboard/Account/Login">Younified</a></div>
-    </div>
-  </div>
-
-</body>
-</html>
+        <!-- COLONNA DESTRA: IA + PROXMOX -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">IA</div>
+            <div class="card-pill">Assistenti &amp; tools</div>
+          </div>
+          <div class="links" style="margin-bottom:10px;">
+            <a class="link-row" href="https://chat.openai.com" target="_blank" rel="noopener">
+              <div class="link-left">
+                <div class="dot"></div>
+                <span class="label">ChatGPT</span>
+              </div>
+              <span class="meta">OpenAI</span>
+            </a>
+            <a class="link-row" href="https://copilot.microsoft.com" target="_blank" rel="noopener">
+              <div class="link-left">
+                <div class="dot"></div>
+                <span class="label">Copilot</span>
+              </div>
+              <span class="meta">Microsoft</span>
+            </a>
+            <a class="link-row" href="https://gemini.google.com" target="_blank" rel="noopener">
+              <div class="link-left">
+                <div class="dot"></div>
+                <span class="label">Gemini</span>
+              </div>
+              <span class="meta">Google</span>
+            </a>
+            <a class="link-row" href="https://leonardo.ai" target="_blank" rel="noopener">
+              <div class="link-left">
+                <div class="dot"></div>
+                <span class="label">Leonardo.Ai</span>
+              </div>
