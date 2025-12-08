@@ -508,3 +508,119 @@
                 <div class="dot"></div>
                 <span class="label">Leonardo.Ai</span>
               </div>
+              <span class="meta">image</span>
+            </a>
+            <a class="link-row" href="https://notebooklm.google.com" target="_blank" rel="noopener">
+              <div class="link-left">
+                <div class="dot"></div>
+                <span class="label">NotebookLM</span>
+              </div>
+              <span class="meta">docs</span>
+            </a>
+            <a class="link-row" href="https://www.perplexity.ai" target="_blank" rel="noopener">
+              <div class="link-left">
+                <div class="dot"></div>
+                <span class="label">Perplexity</span>
+              </div>
+              <span class="meta">search</span>
+            </a>
+            <a class="link-row" href="https://chat.mistral.ai" target="_blank" rel="noopener">
+              <div class="link-left">
+                <div class="dot"></div>
+                <span class="label">Mistral AI</span>
+              </div>
+              <span class="meta">LLM</span>
+            </a>
+            <a class="link-row" href="https://aistudio.google.com" target="_blank" rel="noopener">
+              <div class="link-left">
+                <div class="dot"></div>
+                <span class="label">Google AI Studio</span>
+              </div>
+              <span class="meta">dev</span>
+            </a>
+          </div>
+
+          <div class="card-header" style="margin-top:4px;">
+            <div class="card-title">Proxmox</div>
+            <div class="card-pill">Lab</div>
+          </div>
+          <div class="links">
+            <a class="link-row" href="https://github.com/awesome-selfhosted/awesome-selfhosted" target="_blank" rel="noopener">
+              <div class="link-left">
+                <div class="dot"></div>
+                <span class="label">awesome-selfhosted</span>
+              </div>
+              <span class="meta">GitHub</span>
+            </a>
+            <a class="link-row" href="https://github.com/tteck/Proxmox" target="_blank" rel="noopener">
+              <div class="link-left">
+                <div class="dot"></div>
+                <span class="label">Proxmox VE Helper-Scripts</span>
+              </div>
+              <span class="meta">script</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <span>Invio: ricerca Google · <strong>Alt+1</strong> YouTube · <strong>Alt+2</strong> news</span>
+        <span>Ospitato su GitHub Pages</span>
+      </footer>
+    </div>
+  </main>
+
+  <script>
+    // Orologio
+    function updateClock() {
+      const now = new Date();
+      const opts = { hour: "2-digit", minute: "2-digit" };
+      const time = now.toLocaleTimeString("it-IT", opts);
+      const dateOpts = { weekday: "short", day: "2-digit", month: "short" };
+      const dateStr = now.toLocaleDateString("it-IT", dateOpts);
+      document.getElementById("clock-main").textContent = time;
+      document.getElementById("clock-sub").textContent = dateStr;
+    }
+    updateClock();
+    setInterval(updateClock, 1000 * 30);
+
+    // Ricerca
+    const searchBox = document.getElementById("search-box");
+
+    function openSearch(engine) {
+      const q = (searchBox.value || "").trim();
+      if (!q) return;
+      let url;
+      if (engine === "google") {
+        url = "https://www.google.com/search?q=" + encodeURIComponent(q);
+      } else if (engine === "youtube") {
+        url = "https://www.youtube.com/results?search_query=" + encodeURIComponent(q);
+      } else if (engine === "news") {
+        url = "https://www.google.com/search?q=" + encodeURIComponent(q + " site:ilpost.it OR site:ansa.it");
+      } else {
+        url = "https://www.google.com/search?q=" + encodeURIComponent(q);
+      }
+      window.open(url, "_blank");
+    }
+
+    searchBox.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        openSearch("google");
+      }
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (!e.altKey) return;
+      if (e.code === "Digit1") {
+        e.preventDefault();
+        openSearch("youtube");
+      }
+      if (e.code === "Digit2") {
+        e.preventDefault();
+        openSearch("news");
+      }
+    });
+  </script>
+</body>
+</html>
