@@ -1,285 +1,103 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="utf-8">
-  <title>Start</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Startpage - I miei Preferiti</title>
   <style>
-    :root {
-      --bg: #0b0c10;
-      --bg-card: #151822;
-      --accent: #4ea3ff;
-      --accent-soft: rgba(78,163,255,0.15);
-      --text: #e6e6e6;
-      --text-muted: #9aa0b3;
-    }
-    * { box-sizing:border-box; }
     body {
-      margin:0;
-      padding:2rem 1.5rem 3rem;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1c2537 0, #05060a 55%, #000 100%);
-      color:var(--text);
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #1e1e2f, #2c2c3f);
+      color: #fff;
+      margin: 0;
+      padding: 2rem;
     }
     h1 {
-      margin:0 0 0.25rem;
-      font-size:1.8rem;
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
     }
-    .subtitle {
-      margin:0 0 1.75rem;
-      color:var(--text-muted);
-      font-size:0.95rem;
+    .category {
+      margin-top: 2rem;
     }
-    .grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
-      gap:1.25rem;
-      align-items:start;
+    .category h2 {
+      border-left: 4px solid #4fc3f7;
+      padding-left: 0.5rem;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
     }
-    .card {
-      background:var(--bg-card);
-      border-radius:0.9rem;
-      padding:1rem 1.1rem 0.8rem;
-      box-shadow:0 18px 40px rgba(0,0,0,0.45);
-      border:1px solid rgba(255,255,255,0.03);
+    .links {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1rem;
     }
-    .card h2 {
-      margin:0 0 0.4rem;
-      font-size:1.05rem;
-      text-transform:uppercase;
-      letter-spacing:0.08em;
-      color:var(--text-muted);
+    .link-card {
+      background: #2e2e3f;
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.2s, background 0.2s;
     }
-    .card small {
-      display:block;
-      margin-bottom:0.6rem;
-      font-size:0.75rem;
-      color:var(--text-muted);
+    .link-card:hover {
+      transform: translateY(-5px);
+      background: #3a3a4f;
     }
-    ul.links {
-      list-style:none;
-      padding:0;
-      margin:0;
+    a {
+      color: #4fc3f7;
+      text-decoration: none;
+      font-weight: bold;
     }
-    ul.links li + li { margin-top:0.25rem; }
-    a.link {
-      display:flex;
-      align-items:center;
-      gap:0.45rem;
-      padding:0.35rem 0.4rem;
-      border-radius:0.5rem;
-      color:var(--text);
-      text-decoration:none;
-      transition:background 0.18s ease, transform 0.12s ease, box-shadow 0.18s ease;
-    }
-    a.link span.icon {
-      width:1.4rem;
-      height:1.4rem;
-      border-radius:0.4rem;
-      background:var(--accent-soft);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:0.8rem;
-      color:var(--accent);
-      flex-shrink:0;
-    }
-    a.link span.label {
-      flex:1;
-      font-size:0.9rem;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-    a.link span.host {
-      font-size:0.7rem;
-      color:var(--text-muted);
-    }
-    a.link:hover {
-      background:rgba(255,255,255,0.03);
-      transform:translateY(-1px);
-      box-shadow:0 8px 22px rgba(0,0,0,0.45);
-    }
-    @media (min-width:900px) {
-      body { padding:2.5rem 3rem 3.5rem; }
-      h1 { font-size:2rem; }
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
+  <h1>⭐ I miei Preferiti</h1>
 
-  <h1>Start</h1>
-  <p class="subtitle">Link principali, sincronizzati tra tutti i browser.</p>
+  <!-- Categoria: Barra Preferiti -->
+  <div class="category">
+    <h2>Barra Preferiti</h2>
+    <div class="links">
+      <div class="link-card"><a href="https://www.youtube.com/">YouTube</a></div>
+      <div class="link-card"><a href="http://www.hdblog.it/">HDblog</a></div>
+      <div class="link-card"><a href="https://dday.it/">DDay.it</a></div>
+      <div class="link-card"><a href="https://www.ilpost.it/">Il Post</a></div>
+      <div class="link-card"><a href="https://www.adnkronos.com/">Adnkronos</a></div>
+      <div class="link-card"><a href="https://www.ansa.it/">ANSA</a></div>
+      <div class="link-card"><a href="http://www.rainews.it/">Rai News</a></div>
+      <div class="link-card"><a href="http://www.facebook.com/">Facebook</a></div>
+      <div class="link-card"><a href="http://www.andreagaleazzi.com/?m=1">Andrea Galeazzi</a></div>
+      <div class="link-card"><a href="https://www.amazon.it/">Amazon</a></div>
+      <div class="link-card"><a href="https://hyle.appspot.com/palinsesto/serata">Palinsesto TV</a></div>
+    </div>
+  </div>
 
-  <div class="grid">
+  <!-- Categoria: Consob -->
+  <div class="category">
+    <h2>Consob</h2>
+    <div class="links">
+      <div class="link-card"><a href="https://webticketing.consob.it/Consob/Login">Ticket</a></div>
+      <div class="link-card"><a href="https://menuarc.consob/login.php">Menu Funzioni</a></div>
+      <div class="link-card"><a href="http://172.16.130.160/ocsreports/index.php?first">OCS Inventory</a></div>
+      <div class="link-card"><a href="http://teams.microsoft.com/">Teams</a></div>
+      <div class="link-card"><a href="https://portal.checkpoint.com/signin">Check Point</a></div>
+      <div class="link-card"><a href="https://172.20.18.251/ui/#/host">VM</a></div>
+      <div class="link-card"><a href="https://172.20.120.148/#hId-pgWebScan">Scanner</a></div>
+      <div class="link-card"><a href="https://webticketing.consob.it/Consob/ServiceDesk/Anagrafica">Anagrafica</a></div>
+      <div class="link-card"><a href="https://micollab.consob.it/ucs/micollab/">MiCollab</a></div>
+      <div class="link-card"><a href="http://intranet.consob/int/modulistica/elenco_moduli.html">Modulistica</a></div>
+    </div>
+  </div>
 
-    <!-- Lavoro -->
-    <section class="card">
-      <h2>Lavoro</h2>
-      <small>Strumenti quotidiani</small>
-      <ul class="links">
-        <li>
-          <a class="link" href="https://mail.example.com">
-            <span class="icon">✉️</span>
-            <span class="label">Mail lavoro</span>
-            <span class="host">mail.example.com</span>
-          </a>
-        </li>
-        <li>
-          <a class="link" href="https://jira.example.com">
-            <span class="icon">📋</span>
-            <span class="label">Jira</span>
-            <span class="host">jira.example.com</span>
-          </a>
-        </li>
-        <li>
-          <a class="link" href="https://confluence.example.com">
-            <span class="icon">📚</span>
-            <span class="label">Confluence</span>
-            <span class="host">confluence.example.com</span>
-          </a>
-        </li>
-      </ul>
-    </section>
-
-    <!-- Personale -->
-    <section class="card">
-      <h2>Personale</h2>
-      <small>Uso quotidiano</small>
-      <ul class="links">
-        <li>
-          <a class="link" href="https://app.raindrop.io/">
-            <span class="icon">🔖</span>
-            <span class="label">Raindrop</span>
-            <span class="host">app.raindrop.io</span>
-          </a>
-        </li>
-        <li>
-          <a class="link" href="https://www.youtube.com/">
-            <span class="icon">▶️</span>
-            <span class="label">YouTube</span>
-            <span class="host">youtube.com</span>
-          </a>
-        </li>
-        <li>
-          <a class="link" href="https://www.netflix.com/">
-            <span class="icon">🎬</span>
-            <span class="label">Netflix</span>
-            <span class="host">netflix.com</span>
-          </a>
-        </li>
-      </ul>
-    </section>
-
-    <!-- Homelab -->
-    <section class="card">
-      <h2>Homelab</h2>
-      <small>Accesso da LAN / VPN</small>
-      <ul class="links">
-        <li>
-          <a class="link" href="http://192.168.1.10/admin">
-            <span class="icon">🧩</span>
-            <span class="label">Pi‑hole</span>
-            <span class="host">192.168.1.10</span>
-          </a>
-        </li>
-        <li>
-          <a class="link" href="https://proxmox.home.lan:8006">
-            <span class="icon">🖥️</span>
-            <span class="label">Proxmox</span>
-            <span class="host">proxmox.home.lan</span>
-          </a>
-        </li>
-        <li>
-          <a class="link" href="https://truenas.home.lan">
-            <span class="icon">💾</span>
-            <span class="label">TrueNAS</span>
-            <span class="host">truenas.home.lan</span>
-          </a>
-        </li>
-      </ul>
-    </section>
-
-    <!-- Studio / Certificazioni -->
-    <section class="card">
-      <h2>Studio</h2>
-      <small>Certificazioni e formazione</small>
-      <ul class="links">
-        <li>
-          <a class="link" href="https://www.pmi.org/">
-            <span class="icon">📘</span>
-            <span class="label">PMI</span>
-            <span class="host">pmi.org</span>
-          </a>
-        </li>
-        <li>
-          <a class="link" href="https://www.udemy.com/">
-            <span class="icon">🎓</span>
-            <span class="label">Udemy</span>
-            <span class="host">udemy.com</span>
-          </a>
-        </li>
-        <li>
-          <a class="link" href="https://learn.microsoft.com/">
-            <span class="icon">📚</span>
-            <span class="label">Microsoft Learn</span>
-            <span class="host">learn.microsoft.com</span>
-          </a>
-        </li>
-      </ul>
-    </section>
-
-    <!-- Video / Color grading -->
-    <section class="card">
-      <h2>Video</h2>
-      <small>Produzione e color grading</small>
-      <ul class="links">
-        <li>
-          <a class="link" href="https://www.blackmagicdesign.com/products/davinciresolve/">
-            <span class="icon">🎛️</span>
-            <span class="label">DaVinci Resolve</span>
-            <span class="host">blackmagicdesign.com</span>
-          </a>
-        </li>
-        <li>
-          <a class="link" href="https://nofilmschool.com/">
-            <span class="icon">🎥</span>
-            <span class="label">No Film School</span>
-            <span class="host">nofilmschool.com</span>
-          </a>
-        </li>
-      </ul>
-    </section>
-
-    <!-- Tech / Dev -->
-    <section class="card">
-      <h2>Tech</h2>
-      <small>Dev & infrastruttura</small>
-      <ul class="links">
-        <li>
-          <a class="link" href="https://github.com/">
-            <span class="icon">🐙</span>
-            <span class="label">GitHub</span>
-            <span class="host">github.com</span>
-          </a>
-        </li>
-        <li>
-          <a class="link" href="https://hub.docker.com/">
-            <span class="icon">🐳</span>
-            <span class="label">Docker Hub</span>
-            <span class="host">hub.docker.com</span>
-          </a>
-        </li>
-        <li>
-          <a class="link" href="https://docs.docker.com/">
-            <span class="icon">📄</span>
-            <span class="label">Docker Docs</span>
-            <span class="host">docs.docker.com</span>
-          </a>
-        </li>
-      </ul>
-    </section>
-
+  <!-- Categoria: SMI -->
+  <div class="category">
+    <h2>SMI</h2>
+    <div class="links">
+      <div class="link-card"><a href="https://sm.pandasecurity.com/">Panda</a></div>
+      <div class="link-card"><a href="https://smart.smi-cons.it/dashboard/account/login">Smart Dashboard</a></div>
+      <div class="link-card"><a href="https://wyl.smi-cons.it/Dashboard/Gestione/home">Wyl</a></div>
+      <div class="link-card"><a href="https://younified.smi-cons.it/Dashboard/Account/Login">Younified</a></div>
+    </div>
   </div>
 
 </body>
